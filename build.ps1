@@ -7,7 +7,7 @@ param(
 
 if ($Task -eq 'osFinish') {
     $stagingDirectory = (Resolve-Path $env:APPVEYOR_BUILD_FOLDER).Path
-    $releaseDirectory = Join-Path $env:APPVEYOR_BUILD_FOLDER '\Release\Grouper'
+    $releaseDirectory = Join-Path $env:APPVEYOR_BUILD_FOLDER '\Release'
     $zipFile = Join-Path $stagingDirectory "Grouper-$($env:APPVEYOR_REPO_BRANCH).zip"
     Add-Type -assemblyname System.IO.Compression.FileSystem
     [System.IO.Compression.ZipFile]::CreateFromDirectory($releaseDirectory, $zipFile)
