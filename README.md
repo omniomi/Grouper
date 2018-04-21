@@ -1,7 +1,6 @@
 # Grouper
 
-[![Build status](https://ci.appveyor.com/api/projects/status/github/omniomi/grouper?branch=refactor&svg=true)](https://ci.appveyor.com/project/omniomi/grouper/branch/refactor)
-Download: https://ci.appveyor.com/project/omniomi/grouper/build/artifacts
+[![Build status](https://ci.appveyor.com/api/projects/status/github/omniomi/grouper?branch=refactor&svg=true)](https://ci.appveyor.com/project/omniomi/grouper/branch/refactor) [![download](https://img.shields.io/badge/build-download-blue.svg)](https://ci.appveyor.com/project/omniomi/grouper/build/artifacts)
 
 ----
 
