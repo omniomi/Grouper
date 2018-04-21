@@ -207,12 +207,11 @@ Function Get-GPORegSettings {
                         $output.Add("State", $thing.State)
                         $output.Add("Additive", $thing.Additive)
                         $output.Add("ValuePrefix", $thing.ValuePrefix)
-                        $data = @()
-                        foreach ($subthing in $thing.Value) {
+                        $data = @(foreach ($subthing in $thing.Value) {
                             foreach ($subsubthing in $subthing.Element) {
-                                $data += $subsubthing.Data
+                                $subsubthing.Data
                             }
-                        }
+                        })
                         $output.Add("Data", $data)
                         Write-NoEmpties -output $output
                     }

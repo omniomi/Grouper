@@ -17,28 +17,29 @@ Function Get-GPORegKeys {
 
 	$settingsRegKeys = ($polXml.ExtensionData.Extension.RegistrySettings.Registry | Sort-Object GPOSettingOrder)
 
-    $vulnKeys = @()
-    $vulnKeys += "Software\Network Associates\ePolicy Orchestrator"
-    $vulnKeys += "SOFTWARE\FileZilla Server"
-    $vulnKeys += "SOFTWARE\Wow6432Node\FileZilla Server"
-    $vulnKeys += "Software\Wow6432Node\McAfee\DesktopProtection - McAfee VSE"
-    $vulnKeys += "Software\McAfee\DesktopProtection - McAfee VSE"
-    $vulnKeys += "Software\ORL\WinVNC3"
-    $vulnKeys += "Software\ORL\WinVNC3\Default"
-    $vulnKeys += "Software\ORL\WinVNC\Default"
-    $vulnKeys += "Software\RealVNC\WinVNC4"
-    $vulnKeys += "Software\RealVNC\Default"
-    $vulnKeys += "Software\TightVNC\Server"
-    $vulnKeys += "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+    $vulnKeys = @(
+        "Software\Network Associates\ePolicy Orchestrator",
+        "SOFTWARE\FileZilla Server",
+        "SOFTWARE\Wow6432Node\FileZilla Server",
+        "Software\Wow6432Node\McAfee\DesktopProtection - McAfee VSE",
+        "Software\McAfee\DesktopProtection - McAfee VSE",
+        "Software\ORL\WinVNC3",
+        "Software\ORL\WinVNC3\Default",
+        "Software\ORL\WinVNC\Default",
+        "Software\RealVNC\WinVNC4",
+        "Software\RealVNC\Default",
+        "Software\TightVNC\Server",
+        "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+    )
 
-    $intWords = @()
-    $intWords += "vnc"
-    $intWords += "vpn"
-    $intWords += "pwd"
-    $intWords += "cred"
-    $intWords += "key"
-    $intWords += "pass"
-
+    $intWords = @(
+        "vnc",
+        "vpn",
+        "pwd",
+        "cred",
+        "key",
+        "pass"`
+    )
 
     if ($settingsRegKeys) {
         foreach ($setting in $settingsRegKeys) {
