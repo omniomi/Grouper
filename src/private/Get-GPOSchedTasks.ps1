@@ -15,11 +15,11 @@ Function Get-GPOSchedTasks {
     $GPOisinteresting = $false
     $GPOisvulnerable = $false
 
-    $tasktypes = @()
-    $tasktypes += $polXml.ExtensionData.Extension.ScheduledTasks.Task
-    $tasktypes += $polXml.ExtensionData.Extension.ScheduledTasks.ImmediateTask
-    $tasktypes += $polXml.ExtensionData.Extension.ScheduledTasks.TaskV2
-
+    $tasktypes = @(
+        $polXml.ExtensionData.Extension.ScheduledTasks.Task,
+        $polXml.ExtensionData.Extension.ScheduledTasks.ImmediateTask,
+        $polXml.ExtensionData.Extension.ScheduledTasks.TaskV2
+    )
     $settingsSchedTasks = $tasktypes | Sort-Object GPOSettingOrder
 
     if ($settingsSchedTasks) {
