@@ -62,27 +62,27 @@ Function Invoke-AuditGPOReport {
     }
 
     # couple of counters for the stats at the end
-    $Global:unlinkedPols = 0
-    $Global:GPOsWithIntSettings = 0
-    $Global:GPOsWithVulnSettings = 0
-    $Global:displayedPols = 0
+    $Script:unlinkedPols = 0
+    $Script:GPOsWithIntSettings = 0
+    $Script:GPOsWithVulnSettings = 0
+    $Script:displayedPols = 0
 
     #handle our arguments
-    $Global:showDisabled = $false
+    $Script:showDisabled = $false
     if ($showDisabled) {
-        $Global:showDisabled = $true
+        $Script:showDisabled = $true
     }
 
     # quick and dirty check to make sure that if the user said to do 'online' checks that we can actually reach the domain.
-    $Global:onlineChecks = $false
+    $Script:onlineChecks = $false
     if ($online) {
         if ((Test-Path "\\$($domain)\SYSVOL") -eq $true) {
             Write-ColorText -Text "`r`n[i] Confirmed connectivity to AD domain $domain, including online-only checks.`r`n" -Color "Green"
-            $Global:onlineChecks = $true
+            $Script:onlineChecks = $true
         }
         else {
             Write-ColorText -Text "`r`n[!] Couldn't talk to the domain $domain, falling back to offline mode.`r`n" -Color "Red"
-            $Global:onlineChecks = $False
+            $Script:onlineChecks = $False
         }
     }
 
@@ -124,11 +124,11 @@ Function Invoke-AuditGPOReport {
     Write-Title -Color "Green" -DividerChar "*" -Text "Stats"
     $stats = @()
     $stats += ('Display Level: {0}' -f $level)
-    $stats += ('Online Checks Performed: {0}' -f $Global:onlineChecks)
-    $stats += ('Displayed GPOs: {0}' -f $Global:displayedPols)
-    $stats += ('Unlinked GPOs: {0}' -f $Global:unlinkedPols)
-    #$stats += ('Interesting Settings: {0}' -f $Global:GPOsWithIntSettings)
-    #$stats += ('Vulnerable Settings: {0}' -f $Global:GPOsWithVulnSettings)
+    $stats += ('Online Checks Performed: {0}' -f $Script:onlineChecks)
+    $stats += ('Displayed GPOs: {0}' -f $Script:displayedPols)
+    $stats += ('Unlinked GPOs: {0}' -f $Script:unlinkedPols)
+    #$stats += ('Interesting Settings: {0}' -f $Script:GPOsWithIntSettings)
+    #$stats += ('Vulnerable Settings: {0}' -f $Script:GPOsWithVulnSettings)
     $stats += ('Total GPOs: {0}' -f $gpocount)
     Write-Output $stats
 }
