@@ -1,11 +1,11 @@
 ---
 external help file: Grouper-help.xml
 Module Name: Grouper
-online version:
+online version: 
 schema: 2.0.0
 ---
 
-# Invoke-AuditGPOReport
+# Invoke-AuditGpoReport
 
 ## SYNOPSIS
 Consumes a Get-GPOReport XML formatted report and outputs potentially vulnerable settings.
@@ -14,22 +14,23 @@ Consumes a Get-GPOReport XML formatted report and outputs potentially vulnerable
 
 ### NoArgs (Default)
 ```
-Invoke-AuditGPOReport
+Invoke-AuditGpoReport [<CommonParameters>]
 ```
 
 ### OnlineDomain
 ```
-Invoke-AuditGPOReport [-Path <FileInfo>] [-showDisabled] [-level <Int32>] [-online] [-domain <String>]
+Invoke-AuditGpoReport [-Path <FileInfo>] [-showDisabled] [-level <Int32>] [-online] [-domain <String>]
+ [<CommonParameters>]
 ```
 
 ### WithFile
 ```
-Invoke-AuditGPOReport -Path <FileInfo> [-showDisabled] [-level <Int32>]
+Invoke-AuditGpoReport -Path <FileInfo> [-showDisabled] [-level <Int32>] [<CommonParameters>]
 ```
 
 ### WithoutFile
 ```
-Invoke-AuditGPOReport [-showDisabled] [-level <Int32>]
+Invoke-AuditGpoReport [-showDisabled] [-level <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -52,7 +53,7 @@ Path to XML GPO report
 ```yaml
 Type: FileInfo
 Parameter Sets: OnlineDomain
-Aliases:
+Aliases: 
 
 Required: False
 Position: Named
@@ -64,7 +65,7 @@ Accept wildcard characters: False
 ```yaml
 Type: FileInfo
 Parameter Sets: WithFile
-Aliases:
+Aliases: 
 
 Required: True
 Position: Named
@@ -73,17 +74,17 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -showDisabled
-Toggle filtering GPOs that aren't linked anywhere
+### -domain
+FQDN for the domain to target for online checks
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: OnlineDomain, WithFile, WithoutFile
-Aliases:
+Type: String
+Parameter Sets: OnlineDomain
+Aliases: 
 
 Required: False
 Position: Named
-Default value: False
+Default value: $env:UserDomain
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -94,7 +95,8 @@ Set verbosity level (1 = most verbose, 3 = only show things that are definitely 
 ```yaml
 Type: Int32
 Parameter Sets: OnlineDomain, WithFile, WithoutFile
-Aliases:
+Aliases: 
+Accepted values: 1, 2, 3
 
 Required: False
 Position: Named
@@ -109,7 +111,7 @@ Perform online checks by actively contacting DCs within the target domain
 ```yaml
 Type: SwitchParameter
 Parameter Sets: OnlineDomain
-Aliases:
+Aliases: 
 
 Required: True
 Position: Named
@@ -118,20 +120,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -domain
-FQDN for the domain to target for online checks
+### -showDisabled
+Toggle filtering GPOs that aren't linked anywhere
 
 ```yaml
-Type: String
-Parameter Sets: OnlineDomain
-Aliases:
+Type: SwitchParameter
+Parameter Sets: OnlineDomain, WithFile, WithoutFile
+Aliases: 
 
 Required: False
 Position: Named
-Default value: $env:UserDomain
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
