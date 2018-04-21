@@ -28,12 +28,13 @@ Function Get-GPOSecurityOptions {
             $intKeyNameBools.Add("MACHINE\System\CurrentControlSet\Control\Lsa\UseMachineId", "true")
             $intKeyNameBools.Add("MACHINE\System\CurrentControlSet\Control\Print\Providers\LanMan Print Services\Servers\AddPrinterDrivers", "false")
 
-            $intKeyNameLists = @()
-            $intKeyNameLists += "MACHINE\System\CurrentControlSet\Control\SecurePipeServers\Winreg\AllowedExactPaths\Machine"
-            $intKeyNameLists += "MACHINE\System\CurrentControlSet\Control\SecurePipeServers\Winreg\AllowedPaths\Machine"
-            $intKeyNameLists += "MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\NullSessionPipes"
-            $intKeyNameLists += "MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\NullSessionShares"
-            $intKeyNameLists += "MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\RestrictNullSessAccess"
+            $intKeyNameLists = @(
+                "MACHINE\System\CurrentControlSet\Control\SecurePipeServers\Winreg\AllowedExactPaths\Machine",
+                "MACHINE\System\CurrentControlSet\Control\SecurePipeServers\Winreg\AllowedPaths\Machine",
+                "MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\NullSessionPipes",
+                "MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\NullSessionShares",
+                "MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\RestrictNullSessAccess"
+            )
 
             $intSysAccPolBools = @{}
             $intSysAccPolBools.Add("EnableGuestAccount", 1)
