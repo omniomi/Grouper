@@ -28,148 +28,148 @@ Function Get-GPORegSettings {
 
     if ($settingsPolicies) {
 
-        $intRegPolicies = @()
-        $intRegPolicies += "Allow CredSSP authentication"
-        $intRegPolicies += "Allow Basic Authentication"
-        $intRegPolicies += "Set the default source path for Update-Help"
-        $intRegPolicies += "Default Source Path"
-        $intRegPolicies += "Allow remote server management through WinRM"
-        $intRegPolicies += "Specify intranet Microsoft update service location"
-        $intRegPolicies += "Set the intranet update service for detecting updates:"
-        $intRegPolicies += "Set the intranet statistics server:"
-        $intRegPolicies += "Allow Remote Shell Access"
-        $intRegPolicies += "Allow unencrypted traffic"
-        $intRegPolicies += "Sign-in last interactive user automatically after a system-initiated restart"
-        $intRegPolicies += "Intranet proxy servers for  apps"
-        $intRegPolicies += "Type a proxy server IP address for the intranet"
-        $intRegPolicies += "Internet proxy servers for apps"
-        $intRegPolicies += "Domain Proxies"
-        $intRegPolicies += "Restrict Unauthenticated RPC clients"
-        $intRegPolicies += "RPC Runtime Unauthenticated Client Restriction to Apply"
-        $intRegPolicies += "Enable RPC Endpoint Mapper Client Authentication"
-        $intRegPolicies += "Always install with elevated privileges"
-        $intRegPolicies += "Specify communities"
-        $intRegPolicies += "Communities"
-        $intRegPolicies += "Allow non-administrators to install drivers for these device setup classes"
-        $intRegPolicies += "Allow Users to install device drivers for these classes:"
-        #MS Office settings starts here
-        $intRegPolicies += "Add-ons"
-        $intRegPolicies += "Add-on Management"
-        $intRegPolicies += "Allow background open of web pages"
-        $intRegPolicies += "Allow file extensions for OLE embedding"
-        $intRegPolicies += "Allow in-place activation of embedded OLE objects"
-        $intRegPolicies += "Allow scripts in one-off Outlook forms"
-        $intRegPolicies += "Allow storage of user passwords"
-        $intRegPolicies += "Allow Trusted Locations not on the computer"
-        $intRegPolicies += "Allow Trusted Locations on the network"
-        $intRegPolicies += "Apply macro security settings to macros, add-ins and additional actions"
-        $intRegPolicies += "Apply macro security settings to macros, add-ins, and SmartTags"
-        $intRegPolicies += "Authentication with Exchange Server"
-        $intRegPolicies += "Authentication with Exchange Server"
-        $intRegPolicies += "Authentication with Exchange Server"
-        $intRegPolicies += "Automatically download content for e-mail from people in Safe Senders and Safe Recipients Lists"
-        $intRegPolicies += "Block additional file extensions for OLE embedding"
-        $intRegPolicies += "Block all unmanaged add-ins"
-        $intRegPolicies += "Block application add-ins loading"
-        $intRegPolicies += "Block macros from running in Office files from the Internet"
-        $intRegPolicies += "Chart Templates Server Location"
-        $intRegPolicies += "Configure Add-In Trust Level"
-        $intRegPolicies += "Configure SIP security mode"
-        $intRegPolicies += "Disable 'Remember password' for Internet e-mail accounts"
-        $intRegPolicies += "Disable all application add-ins"
-        $intRegPolicies += "Disable user name and password"
-        $intRegPolicies += "Disable all trusted locations"
-        $intRegPolicies += "Disable Password Caching"
-        $intRegPolicies += "Disable e-mail forms from the Full Trust security zone"
-        $intRegPolicies += "Disable e-mail forms from the Internet security zone"
-        $intRegPolicies += "Disable e-mail forms from the Intranet security zone"
-        $intRegPolicies += "Disable e-mail forms running in restricted security level"
-        $intRegPolicies += "Disable fully trusted solutions full access to computer"
-        $intRegPolicies += "Disable hyperlink warnings"
-        $intRegPolicies += "Disable opening forms with managed code from the Internet security zone"
-        $intRegPolicies += "Disable VBA for Office applications"
-        $intRegPolicies += "Do not allow attachment previewing in Outlook"
-        $intRegPolicies += "Do not allow Outlook object model scripts to run for public folders"
-        $intRegPolicies += "Do not open files from the Internet zone in Protected View"
-        $intRegPolicies += "Do not open files in unsafe locations in Protected View"
-        $intRegPolicies += "Do not permit download of content from safe zones"
-        $intRegPolicies += "Embedded Files Blocked Extensions"
-        $intRegPolicies += "Excel add-in files"
-        $intRegPolicies += "File Previewing"
-        $intRegPolicies += "Hide warnings about suspicious names in e-mail addresses"
-        $intRegPolicies += "Include Internet in Safe Zones for Automatic Picture Download"
-        $intRegPolicies += "Include Intranet in Safe Zones for Automatic Picture Download"
-        $intRegPolicies += "Junk E-mail protection level"
-        $intRegPolicies += "List of managed add-ins"
-        $intRegPolicies += "Location of Backup Folder"
-        $intRegPolicies += "Local Machine Zone Lockdown Security"
-        $intRegPolicies += "Open files on local Intranet UNC in Protected View"
-        $intRegPolicies += "Path to DAV server"
-        $intRegPolicies += "Personal tempaltes path for Excel"
-        $intRegPolicies += "Personal templates path for Access"
-        $intRegPolicies += "Personal templates path for PowerPoint"
-        $intRegPolicies += "Personal templates path for Project"
-        $intRegPolicies += "Personal templates path for Publisher"
-        $intRegPolicies += "Personal templates path for Visio"
-        $intRegPolicies += "Personal templates path for Word"
-        $intRegPolicies += "Prevent saving credentials for Basic Authentication policy"
-        $intRegPolicies += "Prevent Word and Excel from loading managed code extensions"
-        $intRegPolicies += "Protection From Zone Elevation"
-        $intRegPolicies += "Require that application add-ins are signed by Trusted Publisher"
-        $intRegPolicies += "Require that application add-ins are signed by Trusted Publisher"
-        $intRegPolicies += "Require logon credentials"
-        $intRegPolicies += "Run Programs"
-        $intRegPolicies += "Scan encrypted macros in Excel Open XML workbooks"
-        $intRegPolicies += "Scan encrypted macros in PowerPoint Open XML presentations"
-        $intRegPolicies += "Scan encrypted macros in Word Open XML documents"
-        $intRegPolicies += "Security setting for macros"
-        $intRegPolicies += "Security setting for macros"
-        $intRegPolicies += "Specify server"
-        $intRegPolicies += "Start-up"
-        $intRegPolicies += "Templates"
-        $intRegPolicies += "Tools"
-        $intRegPolicies += "Trusted Domain List"
-        $intRegPolicies += "Trusted Location #1"
-        $intRegPolicies += "Trusted Location #10"
-        $intRegPolicies += "Trusted Location #11"
-        $intRegPolicies += "Trusted Location #12"
-        $intRegPolicies += "Trusted Location #13"
-        $intRegPolicies += "Trusted Location #14"
-        $intRegPolicies += "Trusted Location #15"
-        $intRegPolicies += "Trusted Location #16"
-        $intRegPolicies += "Trusted Location #17"
-        $intRegPolicies += "Trusted Location #18"
-        $intRegPolicies += "Trusted Location #19"
-        $intRegPolicies += "Trusted Location #2"
-        $intRegPolicies += "Trusted Location #20"
-        $intRegPolicies += "Trusted Location #3"
-        $intRegPolicies += "Trusted Location #4"
-        $intRegPolicies += "Trusted Location #5"
-        $intRegPolicies += "Trusted Location #6"
-        $intRegPolicies += "Trusted Location #7"
-        $intRegPolicies += "Trusted Location #8"
-        $intRegPolicies += "Trusted Location #9"
-        $intRegPolicies += "Turn off Protected View for attachments opened from Outlook"
-        $intRegPolicies += "Turn off Trusted Documents on the network"
-        $intRegPolicies += "Turn off Trusted Documents on the network"
-        $intRegPolicies += "Turn off trusted documents"
-        $intRegPolicies += "Turn off trusted documents"
-        $intRegPolicies += "Unblock automatic download of linked images"
-        $intRegPolicies += "User queries path"
-        $intRegPolicies += "User templates path"
-        $intRegPolicies += "User Templates"
-        $intRegPolicies += "User Templates"
-        $intRegPolicies += "VBA Macro Notification Settings"
-        $intRegPolicies += "VBA Macro Warning Settings"
-        $intRegPolicies += "Workgroup templates path"
-        #MS Office Settings End Here
+        $intRegPolicies = @(
+            "Allow CredSSP authentication",
+            "Allow Basic Authentication",
+            "Set the default source path for Update-Help",
+            "Default Source Path",
+            "Allow remote server management through WinRM",
+            "Specify intranet Microsoft update service location",
+            "Set the intranet update service for detecting updates:",
+            "Set the intranet statistics server:",
+            "Allow Remote Shell Access",
+            "Allow unencrypted traffic",
+            "Sign-in last interactive user automatically after a system-initiated restart",
+            "Intranet proxy servers for  apps",
+            "Type a proxy server IP address for the intranet",
+            "Internet proxy servers for apps",
+            "Domain Proxies",
+            "Restrict Unauthenticated RPC clients",
+            "RPC Runtime Unauthenticated Client Restriction to Apply",
+            "Enable RPC Endpoint Mapper Client Authentication",
+            "Always install with elevated privileges",
+            "Specify communities",
+            "Communities",
+            "Allow non-administrators to install drivers for these device setup classes",
+            "Allow Users to install device drivers for these classes:",
+            "Add-ons",
+            "Add-on Management",
+            "Allow background open of web pages",
+            "Allow file extensions for OLE embedding",
+            "Allow in-place activation of embedded OLE objects",
+            "Allow scripts in one-off Outlook forms",
+            "Allow storage of user passwords",
+            "Allow Trusted Locations not on the computer",
+            "Allow Trusted Locations on the network",
+            "Apply macro security settings to macros, add-ins and additional actions",
+            "Apply macro security settings to macros, add-ins, and SmartTags",
+            "Authentication with Exchange Server",
+            "Authentication with Exchange Server",
+            "Authentication with Exchange Server",
+            "Automatically download content for e-mail from people in Safe Senders and Safe Recipients Lists",
+            "Block additional file extensions for OLE embedding",
+            "Block all unmanaged add-ins",
+            "Block application add-ins loading",
+            "Block macros from running in Office files from the Internet",
+            "Chart Templates Server Location",
+            "Configure Add-In Trust Level",
+            "Configure SIP security mode",
+            "Disable 'Remember password' for Internet e-mail accounts",
+            "Disable all application add-ins",
+            "Disable user name and password",
+            "Disable all trusted locations",
+            "Disable Password Caching",
+            "Disable e-mail forms from the Full Trust security zone",
+            "Disable e-mail forms from the Internet security zone",
+            "Disable e-mail forms from the Intranet security zone",
+            "Disable e-mail forms running in restricted security level",
+            "Disable fully trusted solutions full access to computer",
+            "Disable hyperlink warnings",
+            "Disable opening forms with managed code from the Internet security zone",
+            "Disable VBA for Office applications",
+            "Do not allow attachment previewing in Outlook",
+            "Do not allow Outlook object model scripts to run for public folders",
+            "Do not open files from the Internet zone in Protected View",
+            "Do not open files in unsafe locations in Protected View",
+            "Do not permit download of content from safe zones",
+            "Embedded Files Blocked Extensions",
+            "Excel add-in files",
+            "File Previewing",
+            "Hide warnings about suspicious names in e-mail addresses",
+            "Include Internet in Safe Zones for Automatic Picture Download",
+            "Include Intranet in Safe Zones for Automatic Picture Download",
+            "Junk E-mail protection level",
+            "List of managed add-ins",
+            "Location of Backup Folder",
+            "Local Machine Zone Lockdown Security",
+            "Open files on local Intranet UNC in Protected View",
+            "Path to DAV server",
+            "Personal tempaltes path for Excel",
+            "Personal templates path for Access",
+            "Personal templates path for PowerPoint",
+            "Personal templates path for Project",
+            "Personal templates path for Publisher",
+            "Personal templates path for Visio",
+            "Personal templates path for Word",
+            "Prevent saving credentials for Basic Authentication policy",
+            "Prevent Word and Excel from loading managed code extensions",
+            "Protection From Zone Elevation",
+            "Require that application add-ins are signed by Trusted Publisher",
+            "Require that application add-ins are signed by Trusted Publisher",
+            "Require logon credentials",
+            "Run Programs",
+            "Scan encrypted macros in Excel Open XML workbooks",
+            "Scan encrypted macros in PowerPoint Open XML presentations",
+            "Scan encrypted macros in Word Open XML documents",
+            "Security setting for macros",
+            "Security setting for macros",
+            "Specify server",
+            "Start-up",
+            "Templates",
+            "Tools",
+            "Trusted Domain List",
+            "Trusted Location #1",
+            "Trusted Location #10",
+            "Trusted Location #11",
+            "Trusted Location #12",
+            "Trusted Location #13",
+            "Trusted Location #14",
+            "Trusted Location #15",
+            "Trusted Location #16",
+            "Trusted Location #17",
+            "Trusted Location #18",
+            "Trusted Location #19",
+            "Trusted Location #2",
+            "Trusted Location #20",
+            "Trusted Location #3",
+            "Trusted Location #4",
+            "Trusted Location #5",
+            "Trusted Location #6",
+            "Trusted Location #7",
+            "Trusted Location #8",
+            "Trusted Location #9",
+            "Turn off Protected View for attachments opened from Outlook",
+            "Turn off Trusted Documents on the network",
+            "Turn off Trusted Documents on the network",
+            "Turn off trusted documents",
+            "Turn off trusted documents",
+            "Unblock automatic download of linked images",
+            "User queries path",
+            "User templates path",
+            "User Templates",
+            "User Templates",
+            "VBA Macro Notification Settings",
+            "VBA Macro Warning Settings",
+            "Workgroup templates path"
+        )
 
-        $vulnRegPolicies = @()
-        $vulnRegPolicies += "Always install with elevated privileges"
-        $vulnRegPolicies += "Specify communities"
-        $vulnRegPolicies += "Communities"
-        $vulnRegPolicies += "Allow non-administrators to install drivers for these device setup classes"
-        $vulnRegPolicies += "Allow Users to install device drivers for these classes:"
+        $vulnRegPolicies = @(
+            "Always install with elevated privileges",
+            "Specify communities",
+            "Communities",
+            "Allow non-administrators to install drivers for these device setup classes",
+            "Allow Users to install device drivers for these classes:"
+        )
 
         # I hate this nested looping shit more than anything I've ever written.
         foreach ($setting in $settingsPolicies) {
