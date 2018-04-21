@@ -27,49 +27,51 @@ Function Invoke-AuditGPO {
     $userSettings = $xmlgpo.User
 
     # Build an array of all our Get-GPO* check scriptblocks
-    $polchecks = @()
-    $polchecks += {Get-GPORegKeys -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPORegKeys -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOUsers -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOUsers -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPOGroups -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOGroups -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPOScripts -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOScripts -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPOFileUpdate -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOFileUpdate -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPOMSIInstallation -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOMSIInstallation -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPOUserRights -Level $level -polXML $xmlgpo}
-    $polchecks += {Get-GPOSchedTasks -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPOSchedTasks -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOFolderRedirection -Level $level -polXML $xmlgpo}
-    $polchecks += {Get-GPOFilePerms -Level $level -polXML $xmlgpo}
-    $polchecks += {Get-GPOSecurityOptions -Level $level -polXML $xmlgpo}
-    $polchecks += {Get-GPOAccountSettings -Level $level -polXML $xmlgpo}
-    $polchecks += {Get-GPONetworkShares -Level $level -polXml $xmlgpo}
-    $polchecks += {Get-GPOFolders -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOFolders -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPORegSettings -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPORegSettings -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOIniFiles -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPOIniFiles -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOEnvVars -Level $level -polXML $computerSettings}
-    $polchecks += {Get-GPOEnvVars -Level $level -polXML $userSettings}
-    $polchecks += {Get-GPOShortcuts -Level $level -polXml $userSettings}
-    $polchecks += {Get-GPOShortcuts -Level $level -polXml $computerSettings}
-    $polchecks += {Get-GPOFWSettings -Level $level -polXml $xmlgpo}
+    $polchecks = @(
+        {Get-GPORegKeys -Level $level -polXML $computerSettings},
+        {Get-GPORegKeys -Level $level -polXML $userSettings},
+        {Get-GPOUsers -Level $level -polXML $userSettings},
+        {Get-GPOUsers -Level $level -polXML $computerSettings},
+        {Get-GPOGroups -Level $level -polXML $userSettings},
+        {Get-GPOGroups -Level $level -polXML $computerSettings},
+        {Get-GPOScripts -Level $level -polXML $userSettings},
+        {Get-GPOScripts -Level $level -polXML $computerSettings},
+        {Get-GPOFileUpdate -Level $level -polXML $userSettings},
+        {Get-GPOFileUpdate -Level $level -polXML $computerSettings},
+        {Get-GPOMSIInstallation -Level $level -polXML $userSettings},
+        {Get-GPOMSIInstallation -Level $level -polXML $computerSettings},
+        {Get-GPOUserRights -Level $level -polXML $xmlgpo},
+        {Get-GPOSchedTasks -Level $level -polXML $computerSettings},
+        {Get-GPOSchedTasks -Level $level -polXML $userSettings},
+        {Get-GPOFolderRedirection -Level $level -polXML $xmlgpo},
+        {Get-GPOFilePerms -Level $level -polXML $xmlgpo},
+        {Get-GPOSecurityOptions -Level $level -polXML $xmlgpo},
+        {Get-GPOAccountSettings -Level $level -polXML $xmlgpo},
+        {Get-GPONetworkShares -Level $level -polXml $xmlgpo},
+        {Get-GPOFolders -Level $level -polXML $userSettings},
+        {Get-GPOFolders -Level $level -polXML $computerSettings},
+        {Get-GPORegSettings -Level $level -polXML $computerSettings},
+        {Get-GPORegSettings -Level $level -polXML $userSettings},
+        {Get-GPOIniFiles -Level $level -polXML $computerSettings},
+        {Get-GPOIniFiles -Level $level -polXML $userSettings},
+        {Get-GPOEnvVars -Level $level -polXML $computerSettings},
+        {Get-GPOEnvVars -Level $level -polXML $userSettings},
+        {Get-GPOShortcuts -Level $level -polXml $userSettings},
+        {Get-GPOShortcuts -Level $level -polXml $computerSettings},
+        {Get-GPOFWSettings -Level $level -polXml $xmlgpo}
+    )
 
     # Write a pretty green header with the report name and some other nice details
-    $headers = @()
-    $headers += {'==============================================================='}
-    $headers += {'Policy UID: {0}' -f $xmlgpo.Identifier.Identifier.InnerText}
-    $headers += {'Policy created on: {0:G}' -f ([DateTime]$xmlgpo.CreatedTime)}
-    $headers += {'Policy last modified: {0:G}' -f ([DateTime]$xmlgpo.ModifiedTime)}
-    $headers += {'Policy owner: {0}' -f $xmlgpo.SecurityDescriptor.Owner.Name.InnerText}
-    $headers += {'Linked OU: {0}' -f $gpopath}
-    $headers += {'Link enabled: {0}' -f $gpoisenabled}
-    $headers += {'==============================================================='}
+    $headers = @(
+        {'==============================================================='},
+        {'Policy UID: {0}' -f $xmlgpo.Identifier.Identifier.InnerText},
+        {'Policy created on: {0:G}' -f ([DateTime]$xmlgpo.CreatedTime)},
+        {'Policy last modified: {0:G}' -f ([DateTime]$xmlgpo.ModifiedTime)},
+        {'Policy owner: {0}' -f $xmlgpo.SecurityDescriptor.Owner.Name.InnerText},
+        {'Linked OU: {0}' -f $gpopath},
+        {'Link enabled: {0}' -f $gpoisenabled},
+        {'==============================================================='}
+    )
 
     # In each GPO we parse, iterate through the list of checks to see if any of them return anything.
     $headerprinted = $false
@@ -90,15 +92,18 @@ Function Invoke-AuditGPO {
                 # Parse and print out the GPO's Permissions
                 $GPOPermissions = $xmlgpo.SecurityDescriptor.Permissions.TrusteePermissions
                 # an array of permissions that aren't exciting
-                $boringPerms = @()
-                $boringPerms += "Read"
-                $boringPerms += "Apply Group Policy"
+                $boringPerms = @(
+                    "Read",
+                    "Apply Group Policy"
+                )
+
                 # an array of users who have RW permissions on GPOs by default, so they're boring too.
-                $boringTrustees = @()
-                $boringTrustees += "Domain Admins"
-                $boringTrustees += "Enterprise Admins"
-                $boringTrustees += "ENTERPRISE DOMAIN CONTROLLERS"
-                $boringTrustees += "SYSTEM"
+                $boringTrustees = @(
+                    "Domain Admins",
+                    "Enterprise Admins",
+                    "ENTERPRISE DOMAIN CONTROLLERS",
+                    "SYSTEM"
+                )
 
                 $permOutput = @{}
 
