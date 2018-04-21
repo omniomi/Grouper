@@ -29,10 +29,9 @@ Function Get-GPOUserRights {
 
             $userRight = $setting.Name
 
-            $members = @()
-            foreach ($member in $setting.Member) {
-                $members += ($member.Name.Innertext)
-            }
+            $members = @(foreach ($member in $setting.Member) {
+                ($member.Name.Innertext)
+            })
 
             # if the right being assigned is in our array of interesting rights, the setting is interesting.
             if ($intRights -contains $userRight) {
