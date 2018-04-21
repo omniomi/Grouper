@@ -49,6 +49,6 @@ Function Get-GPOAccountSettings {
 
     # update the global counters
     if ($GPOisinteresting) {
-        $Global:GPOsWithIntSettings += 1
+        $Script:GPOsWithIntSettings += 1
     }
 }

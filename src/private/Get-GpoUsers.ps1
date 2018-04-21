@@ -55,9 +55,9 @@ Function Get-GPOUsers {
     }
 
     if ($GPOisinteresting) {
-        $Global:GPOsWithIntSettings += 1
+        $Script:GPOsWithIntSettings += 1
     }
     if ($GPOisvulnerable) {
-        $Global:GPOsWithVulnSettings += 1
+        $Script:GPOsWithVulnSettings += 1
     }
 }

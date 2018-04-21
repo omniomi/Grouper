@@ -76,11 +76,11 @@ Function Get-GPORegKeys {
 
     # update the global counters
     if ($GPOisivulnerable) {
-        $Global:GPOsWithVulnSettings += 1
+        $Script:GPOsWithVulnSettings += 1
     }
 
     if ($GPOisinteresting) {
-        $Global:GPOsWithIntSettings += 1
+        $Script:GPOsWithIntSettings += 1
     }
 
 }

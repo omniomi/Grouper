@@ -112,6 +112,6 @@ Function Get-GPOSecurityOptions {
     }
 
     if ($GPOisinteresting) {
-        $Global:GPOsWithIntSettings += 1
+        $Script:GPOsWithIntSettings += 1
     }
 }

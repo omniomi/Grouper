@@ -35,7 +35,7 @@ Function Get-GPOShortcuts {
             $output.Add("targetPath", $setting.properties.targetPath)
             $output.Add("iconPath", $setting.properties.iconPath)
             $output.Add("shortcutPath", $setting.properties.shortcutPath)
-            if ($Global:onlineChecks) {
+            if ($Script:onlineChecks) {
                 if ($targetPath.StartsWith("\\")) {
                     $settingisInteresting = $true
                     $GPOisinteresting = $true
@@ -63,9 +63,9 @@ Function Get-GPOShortcuts {
     }
 
     if ($GPOisinteresting) {
-        $Global:GPOsWithIntSettings += 1
+        $Script:GPOsWithIntSettings += 1
     }
     if ($GPOisvulnerable) {
-        $Global:GPOsWithVulnSettings += 1
+        $Script:GPOsWithVulnSettings += 1
     }
 }

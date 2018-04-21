@@ -33,7 +33,7 @@ Function Get-GPONetworkShares {
     }
 
     if ($GPOisinteresting) {
-        $Global:GPOsWithIntSettings += 1
+        $Script:GPOsWithIntSettings += 1
     }
 
 }

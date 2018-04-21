@@ -9,16 +9,16 @@ Function Invoke-AuditGPO {
     #check the GPO is even enabled
     $gpoisenabled = $xmlgpo.LinksTo.Enabled
     #and if it's not, increment our count of GPOs that don't do anything
-    if (($gpoisenabled -ne "true") -And (!$Global:showdisabled)) {
-        $Global:unlinkedPols += 1
+    if (($gpoisenabled -ne "true") -And (!$Script:showdisabled)) {
+        $Script:unlinkedPols += 1
         return $null
     }
 
     #check if it's linked somewhere
     $gpopath = $xmlgpo.LinksTo.SOMName
     #and if it's not, increment our count of GPOs that don't do anything
-    if ((-Not $gpopath) -And (!$Global:showdisabled)) {
-        $Global:unlinkedPols += 1
+    if ((-Not $gpopath) -And (!$Script:showdisabled)) {
+        $Script:unlinkedPols += 1
         return $null
     }
 
@@ -81,7 +81,7 @@ Function Invoke-AuditGPO {
             # the first time one of the checks returns something, show the user the header with the policy name and so on
             if (!$headerprinted) {
                 # Increment the total counter of displayed policies.
-                $Global:displayedPols += 1
+                $Script:displayedPols += 1
                 # Write the title of the GPO in nice green text
                 Write-ColorText -Color "Green" -Text $xmlgpo.Name
                 # Write the headers from above

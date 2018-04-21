@@ -27,7 +27,7 @@ Function Get-GPOFileUpdate {
             $output.Add("targetPath", $targetPath)
             $settingIsVulnerable = $false
 
-            if ($Global:onlineChecks) {
+            if ($Script:onlineChecks) {
                 if ($fromPath.StartsWith("\\")) {
                     $ACLData = Find-IntACL -Path $fromPath
                     $output.Add("Owner",$ACLData["Owner"])
@@ -52,10 +52,10 @@ Function Get-GPOFileUpdate {
         }
     }
     if ($GPOisinteresting) {
-        $Global:GPOsWithIntSettings += 1
+        $Script:GPOsWithIntSettings += 1
     }
     if ($GPOisvulnerable) {
-        $Global:GPOsWithVulnSettings += 1
+        $Script:GPOsWithVulnSettings += 1
     }
 
 }

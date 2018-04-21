@@ -24,7 +24,7 @@ Function Get-GPOMSIInstallation {
             $output.Add("Name", $setting.Name)
             $output.Add("Path", $MSIPath)
 
-            if ($Global:onlineChecks) {
+            if ($Script:onlineChecks) {
                 if ($MSIPath.StartsWith("\\")) {
                     $ACLData = Find-IntACL -Path $MSIPath
                     $output.Add("Owner",$ACLData["Owner"])
@@ -50,9 +50,9 @@ Function Get-GPOMSIInstallation {
     }
 
     if ($GPOisinteresting) {
-        $Global:GPOsWithIntSettings += 1
+        $Script:GPOsWithIntSettings += 1
     }
     if ($GPOisvulnerable) {
-        $Global:GPOsWithVulnSettings += 1
+        $Script:GPOsWithVulnSettings += 1
     }
 }
