@@ -1,57 +1,64 @@
 # --------------------------- Module Variables ----------------------------
 #
-$intPrivLocalGroups = @()
-$intPrivLocalGroups += "Administrators"
-$intPrivLocalGroups += "Backup Operators"
-$intPrivLocalGroups += "Hyper-V Administrators"
-$intPrivLocalGroups += "Power Users"
-$intPrivLocalGroups += "Print Operators"
-$intPrivLocalGroups += "Remote Desktop Users"
-$intPrivLocalGroups += "Remote Management Users"
+$intPrivLocalGroups = @(
+    'Administrators',
+    'Backup Operators',
+    'Hyper-V Administrators',
+    'Power Users',
+    'Print Operators',
+    'Remote Desktop Users',
+    'Remote Management Users'
+)
 
-$intLowPrivDomGroups = @()
-$intLowPrivDomGroups += "Domain Users"
-$intLowPrivDomGroups += "Authenticated Users"
-$intLowPrivDomGroups += "Everyone"
+$intLowPrivDomGroups = @(
+    'Domain Users',
+    'Authenticated Users',
+    'Everyone'
+)
 
-$intLowPrivLocalGroups = @()
-$intLowPrivLocalGroups += "Users"
-$intLowPrivLocalGroups += "Everyone"
-$intLowPrivLocalGroups += "Authenticated Users"
+$intLowPrivLocalGroups = @(
+    'Users',
+    'Everyone',
+    'Authenticated Users'
+)
 
-$intLowPrivGroups = @()
-$intLowPrivGroups += "Domain Users"
-$intLowPrivGroups += "Authenticated Users"
-$intLowPrivGroups += "Everyone"
-$intLowPrivGroups += "Users"
+$intLowPrivGroups = @(
+    'Domain Users',
+    'Authenticated Users',
+    'Everyone',
+    'Users'
+)
 
-$intPrivDomGroups = @()
-$intPrivDomGroups += "Domain Admins"
-$intPrivDomGroups += "Administrators"
-$intPrivDomGroups += "DNS Admins"
-$intPrivDomGroups += "Backup Operators"
-$intPrivDomGroups += "Enterprise Admins"
-$intPrivDomGroups += "Schema Admins"
-$intPrivDomGroups += "Server Operators"
-$intPrivDomGroups += "Account Operators"
+$intPrivDomGroups = @(
+    'Domain Admins',
+    'Administrators',
+    'DNS Admins',
+    'Backup Operators',
+    'Enterprise Admins',
+    'Schema Admins',
+    'Server Operators',
+    'Account Operators'
+)
 
-$intRights = @()
-$intRights += "SeTrustedCredManAccessPrivilege"
-$intRights += "SeTcbPrivilege"
-$intRights += "SeMachineAccountPrivilege"
-$intRights += "SeBackupPrivilege"
-$intRights += "SeCreateTokenPrivilege"
-$intRights += "SeAssignPrimaryTokenPrivilege"
-$intRights += "SeRestorePrivilege"
-$intRights += "SeDebugPrivilege"
-$intRights += "SeTakeOwnershipPrivilege"
-$intRights += "SeCreateGlobalPrivilege"
-$intRights += "SeLoadDriverPrivilege"
-$intRights += "SeRemoteInteractiveLogonRight"
+$intRights = @(
+    'SeTrustedCredManAccessPrivilege',
+    'SeTcbPrivilege',
+    'SeMachineAccountPrivilege',
+    'SeBackupPrivilege',
+    'SeCreateTokenPrivilege',
+    'SeAssignPrimaryTokenPrivilege',
+    'SeRestorePrivilege',
+    'SeDebugPrivilege',
+    'SeTakeOwnershipPrivilege',
+    'SeCreateGlobalPrivilege',
+    'SeLoadDriverPrivilege',
+    'SeRemoteInteractiveLogonRight'
+)
 
-$boringTrustees = @()
-$boringTrustees += "BUILTIN\Administrators"
-$boringTrustees += "NT AUTHORITY\SYSTEM"
+$boringTrustees = @(
+    'BUILTIN\Administrators',
+    'NT AUTHORITY\SYSTEM'
+)
 
 # --------------------------- Load Loose Files ----------------------------
 #
