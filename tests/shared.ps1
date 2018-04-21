@@ -5,7 +5,7 @@ $ModuleManifestPath = "$PSScriptRoot\..\src\$ModuleManifestName"
 
 if (!$SuppressImportModule) {
     # -Scope Global is needed when running tests from inside of psake, otherwise
-    # the module's functions cannot be found in the PSMailTools\ namespace
+    # the module's functions cannot be found in the Grouper\ namespace
     Import-Module $ModuleManifestPath -Scope Global
 }
 
