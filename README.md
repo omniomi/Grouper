@@ -2,7 +2,7 @@
 
 A PowerShell script for helping to find vulnerable settings in AD Group Policy.
 
-![A picture of a fish](./Epinephelus_malabaricus.jpg)
+![A picture of a fish](./resources/Epinephelus_malabaricus.jpg)
 ###### *Photo by Jon Hanson* - <https://www.flickr.com/people/61952179@N00?rb=1> - <https://creativecommons.org/licenses/by-sa/2.0/>
 
 ## Summary
@@ -63,7 +63,7 @@ By default, Grouper will only show you GPOs that are currently enabled and linke
 ```
 -Online
 ```
-By default Grouper only works with the actual XML output from Get-GPOReport, and does no network comms at all, making it quite "opsec safe", though I do hate that term. 
+By default Grouper only works with the actual XML output from Get-GPOReport, and does no network comms at all, making it quite "opsec safe", though I do hate that term.
 
 If you invoke it with -Online, Grouper will turn on checks that require talking to (at least) the AD domain from which the report was generated, but will also likely involve talking to e.g. file servers. This will allow Grouper to do handy things like report the ACLs on files targeted by GPOs, and check if e.g. the current user can write to the file in question.
 ```
@@ -137,7 +137,7 @@ You'll need to run it with the -showDisabled flag because it's so full of really
 ### I'm even more impatient than that last guy and I demand pretty pictures immediately!
 OK.
 
-![Screenshot of test output](./test_output.png)
+![Screenshot of test output](./resources/test_output.png)
 
 ### But wait, how do I figure out which users/computers these policies apply to? Your thing is useless!
 Short Answer: PowerView will do a decent job of this.
