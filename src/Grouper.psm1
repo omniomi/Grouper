@@ -1,5 +1,6 @@
 # --------------------------- Module Variables ----------------------------
 #
+[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='')]
 $intPrivLocalGroups = @(
     'Administrators',
     'Backup Operators',
@@ -10,18 +11,21 @@ $intPrivLocalGroups = @(
     'Remote Management Users'
 )
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='')]
 $intLowPrivDomGroups = @(
     'Domain Users',
     'Authenticated Users',
     'Everyone'
 )
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='')]
 $intLowPrivLocalGroups = @(
     'Users',
     'Everyone',
     'Authenticated Users'
 )
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='')]
 $intLowPrivGroups = @(
     'Domain Users',
     'Authenticated Users',
@@ -29,6 +33,7 @@ $intLowPrivGroups = @(
     'Users'
 )
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='')]
 $intPrivDomGroups = @(
     'Domain Admins',
     'Administrators',
@@ -40,6 +45,7 @@ $intPrivDomGroups = @(
     'Account Operators'
 )
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='')]
 $intRights = @(
     'SeTrustedCredManAccessPrivilege',
     'SeTcbPrivilege',
@@ -55,6 +61,7 @@ $intRights = @(
     'SeRemoteInteractiveLogonRight'
 )
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='')]
 $boringTrustees = @(
     'BUILTIN\Administrators',
     'NT AUTHORITY\SYSTEM'
