@@ -10,5 +10,5 @@
 - [+] Add PSScriptAnalyzer settings file.
 
 ### Code
-- [-] Remove $Script: variables.
-- [~] Refactor array generation to save memory across multiple functions.
+- [-] Remove $Global: variables across all files.
+- [~] Refactor array generation to save memory across all files.
