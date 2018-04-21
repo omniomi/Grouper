@@ -1,25 +1,4 @@
-<#
-.SYNOPSIS
-    Consumes a Get-GPOReport XML formatted report and outputs potentially vulnerable settings.
-.DESCRIPTION
-    GPP cpassword decryption function stolen shamelessly from @harmj0y
-    Other small snippets and ideas stolen shamelessly from @sysop_host
-.EXAMPLE
-    So first you need to generate a report on a machine with the Group Policy PS module installed. Do that like this:
-
-    "Get-GPOReport -All -ReportType XML -Path C:\temp\gporeport.xml"
-
-    Then import this module and:
-
-    "Invoke-AuditGPOReport -Path C:\temp\gporeport.xml"
-
-    -showDisabled or else by default we just filter out policy objects that aren't enabled or linked anywhere.
-
-    -Level (1, 2, or 3) - adjusts whether to show everything (1) or only interesting (2) or only definitely vulnerable (3) settings. Defaults to 2.
-
-    -lazyMode (without -Path) will run the initial generation of the GPOReport for you but will need to be running as a domain user on a domain-joined machine.
-#>
-Function Invoke-AuditGPOReport {
+Function Invoke-AuditGpoReport {
     [cmdletbinding(DefaultParameterSetName='NoArgs')]
     param(
         [Parameter(ParameterSetName='WithFile', Mandatory=$true, HelpMessage="Path to XML GPO report")]
@@ -122,13 +101,12 @@ Function Invoke-AuditGPOReport {
     $gpocount = ($xmlgpos.Count, 1 -ne $null)[0]
 
     Write-Title -Color "Green" -DividerChar "*" -Text "Stats"
-    $stats = @()
-    $stats += ('Display Level: {0}' -f $level)
-    $stats += ('Online Checks Performed: {0}' -f $Script:onlineChecks)
-    $stats += ('Displayed GPOs: {0}' -f $Script:displayedPols)
-    $stats += ('Unlinked GPOs: {0}' -f $Script:unlinkedPols)
-    #$stats += ('Interesting Settings: {0}' -f $Script:GPOsWithIntSettings)
-    #$stats += ('Vulnerable Settings: {0}' -f $Script:GPOsWithVulnSettings)
-    $stats += ('Total GPOs: {0}' -f $gpocount)
+    $stats = @(
+        ('Display Level: {0}' -f $level),
+        ('Online Checks Performed: {0}' -f $Script:onlineChecks),
+        ('Displayed GPOs: {0}' -f $Script:displayedPols),
+        ('Unlinked GPOs: {0}' -f $Script:unlinkedPols),
+        ('Total GPOs: {0}' -f $gpocount)
+    )
     Write-Output $stats
 }
