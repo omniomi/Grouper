@@ -149,6 +149,34 @@ Properties {
 Task FullBuild -depends Build, BuildHelp, GenerateFileCatalog {
 }
 
+Task BuildScriptModule -depends Clean -requiredVariables OutDir, SrcRootDir, ModuleName {
+    $ModuleVariables  = @(Get-Item (Join-Path $SrcRootDir '_variables.ps1'))
+    $PrivateFunctions = @(Get-ChildItem (Join-Path $SrcRootDir 'Private') -Filter *.ps1 -Recurse)
+    $PublicFunctions  = @(Get-ChildItem (Join-Path $SrcRootDir 'Public') -Filter *.ps1 -Recurse)
+
+    $ScriptModule = Join-Path $OutDir "$ModuleName.psm1"
+    New-Item $ScriptModule -Force | Out-Null
+
+    "# -------------------------- Module Variables --------------------------`n#" | Out-File $ScriptModule
+    Get-Content $ModuleVariables.FullName -Raw | Out-File $ScriptModule -Append
+    "`n# ------------------------- Private  Functions -------------------------`n#" | Out-File $ScriptModule -Append
+    Get-Content $PrivateFunctions.FullName -Raw | Out-File $ScriptModule -Append
+    "`n# -------------------------- Public Functions --------------------------`n#" | Out-File $ScriptModule -Append
+    Get-Content $PublicFunctions.FullName -Raw | Out-File $ScriptModule -Append
+    "`n# -------------------------- Export Functions --------------------------`n#" | Out-File $ScriptModule -Append
+
+    $PublicFunctions = @(foreach ($ScriptFile in $PublicFunctions) {
+        $Parser = [System.Management.Automation.Language.Parser]::ParseFile($ScriptFile.FullName, [ref] $null, [ref] $null)
+        if ($Parser.EndBlock.Statements.Name) {
+            $Parser.EndBlock.Statements.Name
+        }
+    })
+
+    foreach ($ExportableFunction in $PublicFunctions) {
+        "Export-ModuleMember -Function '$ExportableFunction'" | Out-File $ScriptModule -Append
+    }
+}
+
 ###############################################################################
 # Customize these tasks for performing operations before and/or after file staging.
 ###############################################################################

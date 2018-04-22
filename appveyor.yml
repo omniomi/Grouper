@@ -41,3 +41,4 @@ build_script:
 
 on_finish:
   - ps: .\build.ps1 -Task osFinish
+  - ps: .\build.ps1 -Task avScriptModule
