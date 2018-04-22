@@ -26,7 +26,7 @@ if ($Task -eq 'osFinish') {
     } catch {
         throw "Failed to build script module."
     }
-    Push-AppveyorArtifact Join-Path $env:APPVEYOR_BUILD_FOLDER '\Release\Grouper.psm1'
+    Push-AppveyorArtifact (Join-Path $env:APPVEYOR_BUILD_FOLDER '\Release\Grouper.psm1')
 } else {
     Import-Module psake;Import-Module Pester;Import-Module PSScriptAnalyzer
     Invoke-psake -buildFile "$PSScriptRoot\build.psake.ps1" -taskList $Task -Verbose:$VerbosePreference
